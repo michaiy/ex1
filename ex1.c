@@ -4,7 +4,6 @@ ID:
 Assignment:
 *******************/
 #include <stdio.h>
-#include <tgmath.h>
 
  // REMINDER : YOU CANT USE ANY CONTROL FLOW OPERATIONS OR FUNCTIONS, ONLY BITWISE.
 
@@ -21,8 +20,7 @@ int main() {
   printf("Please enter a position:\n");
   scanf("%d", &y1);
   int sum1 = x1 >> y1;
-  sum1 = sum1 % 2;
-  sum1 = pow(sum1, 2);
+  sum1 = sum1 & 1;
   printf("The bit in position %d of number %d is: %d\n", y1, x1, sum1);
 
   printf("\nSet bit:\n");
@@ -60,9 +58,9 @@ int main() {
   int x4;
   printf("Please enter a number:\n");
   scanf("%d", &x4);
-  x4=x4 % 2;
-  x4=pow(x4, 2);
-  printf("%d\n", !x4);
+  int temp = x4 >> 1;
+  temp = temp << 1;
+  printf("%d\n", (x4 ^ temp) ^ 1);
 
   // 3, 5, 7, 11
   printf("\n3, 5, 7, 11:\n");
@@ -74,19 +72,15 @@ int main() {
   scanf("%o", &x5);
   printf("Please enter the second number (octal):\n");
   scanf("%o", &y5);
-  int sum5 = (x5+y5);
+  int sum5 = x5+y5;
   int pos1 = sum5 >> 3;
-  pos1 = pos1 % 2;
-  pos1 = pow(pos1, 2);
+  pos1 = pos1 & 1;
   int pos2 = sum5 >> 5;
-  pos2 = pos2 % 2;
-  pos2 = pow(pos2, 2);
+  pos2 = pos2 & 1;
   int pos3 = sum5 >> 7;
-  pos3 = pos3 % 2;
-  pos3 = pow(pos3, 2);
+  pos3 = pos3 & 1;
   int pos4 = sum5 >> 11;
-  pos4 = pos4 % 2;
-  pos4 = pow(pos4, 2);
+  pos4 = pos4 & 1;
   printf("The sum in hexadecimal: %X\n", sum5);
   printf("The 3,5,7,11 bits are:%d%d%d%d\n", pos1, pos2, pos3, pos4);
   printf("Bye!\n");
