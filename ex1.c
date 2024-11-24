@@ -1,6 +1,6 @@
  /******************
-Name:Yaron Michailov
-ID:212648562
+Name:
+ID:
 Assignment:ex1
 *******************/
 #include <stdio.h>
